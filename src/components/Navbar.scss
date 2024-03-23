@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+.navbar {
+    font-family: 'Lato', sans-serif;
+    background-color: #2F302C;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+    height: 8vh;
+
+    .left {
+        display: flex;
+        align-items: center;
+
+        @media (max-width: 600px) {
+            display: none;
+        }
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-right: 9vh;
+        margin-left: 0px;
+        width: 100%;
+
+        @media (max-width: 600px) {
+            font-size: 0.8rem; // Make the logo smaller on smaller screens
+            margin-right: 0;
+        }
+    }
+    .logoImg{
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+
+        @media (max-width: 600px) {
+            display: none;
+        }
+    }
+
+    li {
+        margin-right: 50px;
+        font-size: 0.9rem; 
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        &:hover a {
+            color: skyblue;
+        }
+
+        &.more {
+            position: relative;
+            cursor: pointer;
+
+            ul {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #333;
+                display: none;
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+                li {
+                    margin: 5px 0;
+                    a {
+                        color: white;
+                        text-decoration: none;
+
+                        &:hover {
+                            color: #333;
+                            background-color: white;
+                        }
+                    }
+                }
+            }
+
+            &:hover ul {
+                display: block;
+            }
+        }
+    }
+
+    .hidden-items {
+        display: none;
+        position: absolute;
+        background-color: #333;
+        z-index: 1;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .more:hover .hidden-items {
+        display: block;
+    }
+
+    .right {
+        display: flex;
+        align-items: center;
+        .search-bar {
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            .search-icon {
+                width: 12px;
+                margin-right: 10px;
+                position: absolute;
+                top: 2px;
+                left: 0;
+                filter: invert(1);
+
+                @media (max-width: 600px) {
+                    width: 10px; // Make the search icon smaller on smaller screens
+                }
+            }
+
+            .search-input {
+                border: none;
+                border-bottom: 1px solid white;
+                background-color: transparent;
+                color: white;
+                padding-left: 20px;
+                padding-bottom: 10px;
+                top: -3px;
+                width: 40vh;
+
+                @media (max-width: 600px) {
+                    width: 25vh;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 600px) {
+        .left,
+        .right {
+            display: flex;
+            align-items: center;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap; // Allow items to wrap to the next line on smaller screens
+            justify-content: flex-end; // Align items to the right on smaller screens
+        
+            @media (max-width: 600px) {
+                position: absolute; // Position the dropdown absolutely for smaller screens
+                top: 100%; // Align the dropdown menu below the navbar
+                right: 0; // Align the dropdown menu to the right side of the navbar
+                background-color: #333; // Background color for the dropdown menu
+                border-radius: 5px; // Border radius for the dropdown menu
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Box shadow for the dropdown menu
+                padding: 10px; // Padding for the dropdown menu
+                display: none; // Initially hide the dropdown menu
+            }
+        }
+    }
+}
